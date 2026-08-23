@@ -1,0 +1,725 @@
+{
+  "kind": "combined",
+  "schema_version": 11,
+  "version": "3.17.0",
+  "elapsed_ms": 21,
+  "check": {
+    "schema_version": 9,
+    "version": "3.17.0",
+    "elapsed_ms": 14,
+    "total_issues": 2,
+    "entry_points": {
+      "total": 7,
+      "sources": {
+        "default_index": 1,
+        "plugin": 6
+      }
+    },
+    "summary": {
+      "total_issues": 2,
+      "unused_files": 0,
+      "unused_exports": 1,
+      "unused_types": 0,
+      "private_type_leaks": 0,
+      "unused_dependencies": 0,
+      "unused_enum_members": 0,
+      "unused_class_members": 0,
+      "unused_store_members": 0,
+      "unprovided_injects": 0,
+      "unrendered_components": 0,
+      "unused_component_props": 0,
+      "unused_component_emits": 0,
+      "unused_component_inputs": 0,
+      "unused_component_outputs": 0,
+      "unused_svelte_events": 0,
+      "unused_server_actions": 0,
+      "unused_load_data_keys": 0,
+      "unresolved_imports": 0,
+      "unlisted_dependencies": 0,
+      "duplicate_exports": 0,
+      "type_only_dependencies": 0,
+      "test_only_dependencies": 0,
+      "dev_dependencies_in_production": 1,
+      "circular_dependencies": 0,
+      "re_export_cycles": 0,
+      "boundary_violations": 0,
+      "boundary_coverage_violations": 0,
+      "boundary_call_violations": 0,
+      "policy_violations": 0,
+      "stale_suppressions": 0,
+      "unused_catalog_entries": 0,
+      "empty_catalog_groups": 0,
+      "unresolved_catalog_references": 0,
+      "unused_dependency_overrides": 0,
+      "misconfigured_dependency_overrides": 0,
+      "invalid_client_exports": 0,
+      "mixed_client_server_barrels": 0,
+      "misplaced_directives": 0,
+      "route_collisions": 0,
+      "dynamic_segment_name_conflicts": 0
+    },
+    "unused_files": [],
+    "unused_exports": [
+      {
+        "path": "src/store.ts",
+        "export_name": "tasksByColumn",
+        "is_type_only": false,
+        "line": 116,
+        "col": 16,
+        "span_start": 2931,
+        "is_re_export": false,
+        "actions": [
+          {
+            "type": "remove-export",
+            "auto_fixable": true,
+            "description": "Remove the unused export from the public API"
+          },
+          {
+            "type": "suppress-line",
+            "auto_fixable": false,
+            "description": "Suppress with an inline comment above the line",
+            "comment": "// fallow-ignore-next-line unused-export"
+          }
+        ]
+      }
+    ],
+    "unused_types": [],
+    "private_type_leaks": [],
+    "unused_dependencies": [],
+    "unused_dev_dependencies": [],
+    "unused_optional_dependencies": [],
+    "unused_enum_members": [],
+    "unused_class_members": [],
+    "unresolved_imports": [],
+    "unlisted_dependencies": [],
+    "duplicate_exports": [],
+    "type_only_dependencies": [],
+    "test_only_dependencies": [],
+    "dev_dependencies_in_production": [
+      {
+        "package_name": "tailwindcss",
+        "path": "package.json",
+        "line": 21,
+        "actions": [
+          {
+            "type": "move-to-prod",
+            "auto_fixable": false,
+            "description": "Move to dependencies (production code imports this at runtime)",
+            "note": "A production-only install (`pnpm install --prod`) omits devDependencies, so this import would break at runtime"
+          },
+          {
+            "type": "add-to-config",
+            "auto_fixable": false,
+            "description": "Add \"tailwindcss\" to ignoreDependencies in fallow config",
+            "config_key": "ignoreDependencies",
+            "value": "tailwindcss",
+            "value_schema": "https://raw.githubusercontent.com/fallow-rs/fallow/main/schema.json#/properties/ignoreDependencies/items"
+          }
+        ]
+      }
+    ],
+    "circular_dependencies": [],
+    "re_export_cycles": [],
+    "boundary_violations": [],
+    "boundary_coverage_violations": [],
+    "boundary_call_violations": [],
+    "policy_violations": [],
+    "stale_suppressions": [],
+    "unused_catalog_entries": [],
+    "empty_catalog_groups": [],
+    "unresolved_catalog_references": [],
+    "unused_dependency_overrides": [],
+    "misconfigured_dependency_overrides": [],
+    "invalid_client_exports": [],
+    "mixed_client_server_barrels": [],
+    "misplaced_directives": [],
+    "route_collisions": [],
+    "dynamic_segment_name_conflicts": []
+  },
+  "dupes": {
+    "clone_groups": [],
+    "clone_families": [],
+    "stats": {
+      "total_files": 11,
+      "files_with_clones": 0,
+      "total_lines": 1192,
+      "duplicated_lines": 0,
+      "total_tokens": 3328,
+      "duplicated_tokens": 0,
+      "clone_groups": 0,
+      "clone_instances": 0,
+      "duplication_percentage": 0.0
+    }
+  },
+  "health": {
+    "findings": [
+      {
+        "path": "src/pages/taskDetail.ts",
+        "name": "mountTaskDetail",
+        "line": 12,
+        "col": 7,
+        "cyclomatic": 15,
+        "cognitive": 20,
+        "line_count": 173,
+        "param_count": 2,
+        "exceeded": "cognitive_crap",
+        "severity": "critical",
+        "crap": 240.0,
+        "coverage_tier": "none",
+        "coverage_source": "estimated",
+        "actions": [
+          {
+            "type": "add-tests",
+            "auto_fixable": false,
+            "description": "Add test coverage for `mountTaskDetail` to lower its CRAP score (coverage reduces risk even without refactoring)",
+            "note": "CRAP = CC^2 * (1 - cov/100)^3 + CC; higher coverage is the fastest way to bring CRAP under threshold"
+          },
+          {
+            "type": "refactor-function",
+            "auto_fixable": false,
+            "description": "Refactor `mountTaskDetail` to reduce complexity (extract helper functions, simplify branching)",
+            "note": "Consider splitting into smaller functions with single responsibilities"
+          },
+          {
+            "type": "suppress-line",
+            "auto_fixable": false,
+            "description": "Suppress with an inline comment above the function declaration",
+            "comment": "// fallow-ignore-next-line complexity",
+            "placement": "above-function-declaration"
+          }
+        ]
+      },
+      {
+        "path": "src/pages/board.ts",
+        "name": "<arrow>",
+        "line": 58,
+        "col": 10,
+        "cyclomatic": 8,
+        "cognitive": 7,
+        "line_count": 15,
+        "param_count": 1,
+        "exceeded": "crap",
+        "severity": "high",
+        "crap": 72.0,
+        "coverage_tier": "none",
+        "coverage_source": "estimated",
+        "actions": [
+          {
+            "type": "add-tests",
+            "auto_fixable": false,
+            "description": "Add test coverage for `<arrow>` to lower its CRAP score (coverage reduces risk even without refactoring)",
+            "note": "CRAP = CC^2 * (1 - cov/100)^3 + CC; higher coverage is the fastest way to bring CRAP under threshold"
+          },
+          {
+            "type": "suppress-line",
+            "auto_fixable": false,
+            "description": "Suppress with an inline comment above the function declaration",
+            "comment": "// fallow-ignore-next-line complexity",
+            "placement": "above-function-declaration"
+          }
+        ]
+      },
+      {
+        "path": "src/pages/team.ts",
+        "name": "<arrow>",
+        "line": 97,
+        "col": 13,
+        "cyclomatic": 8,
+        "cognitive": 10,
+        "line_count": 44,
+        "param_count": 1,
+        "exceeded": "crap",
+        "severity": "high",
+        "crap": 72.0,
+        "coverage_tier": "none",
+        "coverage_source": "estimated",
+        "actions": [
+          {
+            "type": "add-tests",
+            "auto_fixable": false,
+            "description": "Add test coverage for `<arrow>` to lower its CRAP score (coverage reduces risk even without refactoring)",
+            "note": "CRAP = CC^2 * (1 - cov/100)^3 + CC; higher coverage is the fastest way to bring CRAP under threshold"
+          },
+          {
+            "type": "suppress-line",
+            "auto_fixable": false,
+            "description": "Suppress with an inline comment above the function declaration",
+            "comment": "// fallow-ignore-next-line complexity",
+            "placement": "above-function-declaration"
+          }
+        ]
+      },
+      {
+        "path": "src/main.ts",
+        "name": "mount",
+        "line": 39,
+        "col": 0,
+        "cyclomatic": 6,
+        "cognitive": 5,
+        "line_count": 16,
+        "param_count": 0,
+        "exceeded": "crap",
+        "severity": "moderate",
+        "crap": 42.0,
+        "coverage_tier": "none",
+        "coverage_source": "estimated",
+        "actions": [
+          {
+            "type": "add-tests",
+            "auto_fixable": false,
+            "description": "Add test coverage for `mount` to lower its CRAP score (coverage reduces risk even without refactoring)",
+            "note": "CRAP = CC^2 * (1 - cov/100)^3 + CC; higher coverage is the fastest way to bring CRAP under threshold"
+          },
+          {
+            "type": "suppress-line",
+            "auto_fixable": false,
+            "description": "Suppress with an inline comment above the function declaration",
+            "comment": "// fallow-ignore-next-line complexity",
+            "placement": "above-function-declaration"
+          }
+        ]
+      },
+      {
+        "path": "src/router.ts",
+        "name": "parseHash",
+        "line": 3,
+        "col": 0,
+        "cyclomatic": 6,
+        "cognitive": 5,
+        "line_count": 8,
+        "param_count": 0,
+        "exceeded": "crap",
+        "severity": "moderate",
+        "crap": 42.0,
+        "coverage_tier": "none",
+        "coverage_source": "estimated",
+        "actions": [
+          {
+            "type": "add-tests",
+            "auto_fixable": false,
+            "description": "Add test coverage for `parseHash` to lower its CRAP score (coverage reduces risk even without refactoring)",
+            "note": "CRAP = CC^2 * (1 - cov/100)^3 + CC; higher coverage is the fastest way to bring CRAP under threshold"
+          },
+          {
+            "type": "suppress-line",
+            "auto_fixable": false,
+            "description": "Suppress with an inline comment above the function declaration",
+            "comment": "// fallow-ignore-next-line complexity",
+            "placement": "above-function-declaration"
+          }
+        ]
+      },
+      {
+        "path": "src/store.ts",
+        "name": "loadTasks",
+        "line": 66,
+        "col": 0,
+        "cyclomatic": 5,
+        "cognitive": 4,
+        "line_count": 11,
+        "param_count": 0,
+        "exceeded": "crap",
+        "severity": "moderate",
+        "crap": 30.0,
+        "coverage_tier": "none",
+        "coverage_source": "estimated",
+        "actions": [
+          {
+            "type": "add-tests",
+            "auto_fixable": false,
+            "description": "Add test coverage for `loadTasks` to lower its CRAP score (coverage reduces risk even without refactoring)",
+            "note": "CRAP = CC^2 * (1 - cov/100)^3 + CC; higher coverage is the fastest way to bring CRAP under threshold"
+          },
+          {
+            "type": "suppress-line",
+            "auto_fixable": false,
+            "description": "Suppress with an inline comment above the function declaration",
+            "comment": "// fallow-ignore-next-line complexity",
+            "placement": "above-function-declaration"
+          }
+        ]
+      },
+      {
+        "path": "src/pages/team.ts",
+        "name": "initials",
+        "line": 149,
+        "col": 0,
+        "cyclomatic": 5,
+        "cognitive": 2,
+        "line_count": 4,
+        "param_count": 1,
+        "exceeded": "crap",
+        "severity": "moderate",
+        "crap": 30.0,
+        "coverage_tier": "none",
+        "coverage_source": "estimated",
+        "actions": [
+          {
+            "type": "add-tests",
+            "auto_fixable": false,
+            "description": "Add test coverage for `initials` to lower its CRAP score (coverage reduces risk even without refactoring)",
+            "note": "CRAP = CC^2 * (1 - cov/100)^3 + CC; higher coverage is the fastest way to bring CRAP under threshold"
+          },
+          {
+            "type": "suppress-line",
+            "auto_fixable": false,
+            "description": "Suppress with an inline comment above the function declaration",
+            "comment": "// fallow-ignore-next-line complexity",
+            "placement": "above-function-declaration"
+          }
+        ]
+      }
+    ],
+    "summary": {
+      "files_analyzed": 17,
+      "functions_analyzed": 74,
+      "functions_above_threshold": 7,
+      "max_cyclomatic_threshold": 20,
+      "max_cognitive_threshold": 15,
+      "max_crap_threshold": 30.0,
+      "max_unit_size_threshold": 60,
+      "files_scored": 9,
+      "average_maintainability": 91.7,
+      "coverage_model": "static_estimated",
+      "coverage_source_consistency": "uniform",
+      "severity_critical_count": 1,
+      "severity_high_count": 2,
+      "severity_moderate_count": 4
+    },
+    "vital_signs": {
+      "dead_file_pct": 0.0,
+      "dead_export_pct": 4.0,
+      "avg_cyclomatic": 2.0,
+      "critical_complexity_pct": 0.0,
+      "p90_cyclomatic": 4,
+      "hotspot_count": 0,
+      "hotspot_top_pct_count": 0,
+      "maintainability_avg": 91.7,
+      "maintainability_low_pct": 0.0,
+      "unused_dep_count": 0,
+      "unused_deps_per_k_files": 0.0,
+      "circular_dep_count": 0,
+      "circular_deps_per_k_files": 0.0,
+      "counts": {
+        "total_files": 17,
+        "total_exports": 25,
+        "dead_files": 0,
+        "dead_exports": 1,
+        "total_lines": 1269,
+        "files_scored": 9,
+        "total_deps": 0
+      },
+      "unit_size_profile": {
+        "low_risk": 81.1,
+        "medium_risk": 5.4,
+        "high_risk": 4.1,
+        "very_high_risk": 9.5
+      },
+      "functions_over_60_loc_per_k": 94.6,
+      "unit_interfacing_profile": {
+        "low_risk": 100.0,
+        "medium_risk": 0.0,
+        "high_risk": 0.0,
+        "very_high_risk": 0.0
+      },
+      "p95_fan_in": 5,
+      "coupling_high_pct": 0.0,
+      "total_loc": 1269
+    },
+    "file_scores": [
+      {
+        "path": "src/pages/taskDetail.ts",
+        "fan_in": 1,
+        "fan_out": 2,
+        "dead_code_ratio": 0.0,
+        "complexity_density": 0.11,
+        "maintainability_index": 92.3,
+        "total_cyclomatic": 20,
+        "total_cognitive": 20,
+        "function_count": 6,
+        "lines": 185,
+        "crap_max": 240.0,
+        "crap_above_threshold": 1
+      },
+      {
+        "path": "src/pages/board.ts",
+        "fan_in": 1,
+        "fan_out": 3,
+        "dead_code_ratio": 0.0,
+        "complexity_density": 0.25,
+        "maintainability_index": 87.0,
+        "total_cyclomatic": 33,
+        "total_cognitive": 17,
+        "function_count": 16,
+        "lines": 130,
+        "crap_max": 72.0,
+        "crap_above_threshold": 1
+      },
+      {
+        "path": "src/pages/team.ts",
+        "fan_in": 1,
+        "fan_out": 1,
+        "dead_code_ratio": 0.0,
+        "complexity_density": 0.11,
+        "maintainability_index": 93.9,
+        "total_cyclomatic": 18,
+        "total_cognitive": 13,
+        "function_count": 6,
+        "lines": 161,
+        "crap_max": 72.0,
+        "crap_above_threshold": 2
+      },
+      {
+        "path": "src/main.ts",
+        "fan_in": 1,
+        "fan_out": 8,
+        "dead_code_ratio": 0.0,
+        "complexity_density": 0.17,
+        "maintainability_index": 86.1,
+        "total_cyclomatic": 10,
+        "total_cognitive": 6,
+        "function_count": 4,
+        "lines": 58,
+        "crap_max": 42.0,
+        "crap_above_threshold": 1
+      },
+      {
+        "path": "src/router.ts",
+        "fan_in": 4,
+        "fan_out": 1,
+        "dead_code_ratio": 0.0,
+        "complexity_density": 0.39,
+        "maintainability_index": 88.3,
+        "total_cyclomatic": 15,
+        "total_cognitive": 9,
+        "function_count": 7,
+        "lines": 38,
+        "crap_max": 42.0,
+        "crap_above_threshold": 1
+      },
+      {
+        "path": "src/store.ts",
+        "fan_in": 5,
+        "fan_out": 1,
+        "dead_code_ratio": 0.13,
+        "complexity_density": 0.14,
+        "maintainability_index": 90.4,
+        "total_cyclomatic": 23,
+        "total_cognitive": 6,
+        "function_count": 17,
+        "lines": 164,
+        "crap_max": 30.0,
+        "crap_above_threshold": 1
+      },
+      {
+        "path": "src/pages/dashboard.ts",
+        "fan_in": 1,
+        "fan_out": 2,
+        "dead_code_ratio": 0.0,
+        "complexity_density": 0.1,
+        "maintainability_index": 92.6,
+        "total_cyclomatic": 19,
+        "total_cognitive": 6,
+        "function_count": 13,
+        "lines": 200,
+        "crap_max": 12.0,
+        "crap_above_threshold": 0
+      },
+      {
+        "path": "src/layout.ts",
+        "fan_in": 1,
+        "fan_out": 1,
+        "dead_code_ratio": 0.0,
+        "complexity_density": 0.05,
+        "maintainability_index": 95.7,
+        "total_cyclomatic": 6,
+        "total_cognitive": 3,
+        "function_count": 3,
+        "lines": 119,
+        "crap_max": 6.0,
+        "crap_above_threshold": 0
+      },
+      {
+        "path": "src/smoke.test.ts",
+        "fan_in": 0,
+        "fan_out": 0,
+        "dead_code_ratio": 0.0,
+        "complexity_density": 0.29,
+        "maintainability_index": 98.8,
+        "total_cyclomatic": 2,
+        "total_cognitive": 0,
+        "function_count": 2,
+        "lines": 7,
+        "crap_max": 1.2,
+        "crap_above_threshold": 0
+      }
+    ],
+    "hotspot_summary": {
+      "since": "6 months",
+      "min_commits": 3,
+      "files_analyzed": 0,
+      "files_excluded": 9,
+      "shallow_clone": false
+    },
+    "large_functions": [
+      {
+        "path": "src/pages/dashboard.ts",
+        "name": "mountDashboard",
+        "line": 16,
+        "line_count": 176
+      },
+      {
+        "path": "src/pages/taskDetail.ts",
+        "name": "mountTaskDetail",
+        "line": 12,
+        "line_count": 173
+      },
+      {
+        "path": "src/pages/dashboard.ts",
+        "name": "render",
+        "line": 17,
+        "line_count": 170
+      },
+      {
+        "path": "src/pages/team.ts",
+        "name": "mountTeam",
+        "line": 3,
+        "line_count": 145
+      },
+      {
+        "path": "src/pages/board.ts",
+        "name": "mountBoard",
+        "line": 18,
+        "line_count": 104
+      },
+      {
+        "path": "src/layout.ts",
+        "name": "shellHtml",
+        "line": 16,
+        "line_count": 103
+      },
+      {
+        "path": "src/pages/board.ts",
+        "name": "render",
+        "line": 21,
+        "line_count": 97
+      }
+    ],
+    "targets": [
+      {
+        "path": "src/router.ts",
+        "priority": 25.0,
+        "efficiency": 12.5,
+        "recommendation": "Split high-impact file (38 LOC), 4 dependents amplify every change",
+        "category": "split_high_impact",
+        "effort": "medium",
+        "confidence": "medium",
+        "factors": [
+          {
+            "metric": "complexity_density",
+            "value": 0.39,
+            "threshold": 0.3,
+            "detail": "density 0.39 exceeds 0.3"
+          },
+          {
+            "metric": "fan_in",
+            "value": 4.0,
+            "threshold": 3.0,
+            "detail": "4 files depend on this"
+          }
+        ],
+        "evidence": {
+          "direct_callers": [
+            {
+              "path": "src/main.ts",
+              "symbols": [
+                {
+                  "imported": "getRoute",
+                  "local": "getRoute",
+                  "type_only": false
+                },
+                {
+                  "imported": "subscribeRoute",
+                  "local": "subscribeRoute",
+                  "type_only": false
+                }
+              ]
+            },
+            {
+              "path": "src/pages/board.ts",
+              "symbols": [
+                {
+                  "imported": "navigate",
+                  "local": "navigate",
+                  "type_only": false
+                }
+              ]
+            },
+            {
+              "path": "src/pages/dashboard.ts",
+              "symbols": [
+                {
+                  "imported": "navigate",
+                  "local": "navigate",
+                  "type_only": false
+                }
+              ]
+            },
+            {
+              "path": "src/pages/taskDetail.ts",
+              "symbols": [
+                {
+                  "imported": "navigate",
+                  "local": "navigate",
+                  "type_only": false
+                }
+              ]
+            }
+          ]
+        },
+        "actions": [
+          {
+            "type": "apply-refactoring",
+            "auto_fixable": false,
+            "description": "Split high-impact file (38 LOC), 4 dependents amplify every change",
+            "category": "split_high_impact"
+          },
+          {
+            "type": "suppress-line",
+            "auto_fixable": false,
+            "description": "Suppress the underlying complexity finding",
+            "comment": "// fallow-ignore-next-line complexity"
+          }
+        ]
+      }
+    ],
+    "target_thresholds": {
+      "fan_in_p95": 5.0,
+      "fan_in_p75": 3.0,
+      "fan_out_p95": 8.0,
+      "fan_out_p90": 8
+    }
+  },
+  "next_steps": [
+    {
+      "id": "setup",
+      "command": "fallow schema",
+      "reason": "fallow has no config here; the manifest lists guided-setup commands (agent guide, commit gate) to offer the user"
+    },
+    {
+      "id": "trace-unused-export",
+      "command": "fallow dead-code --trace src/store.ts:tasksByColumn",
+      "reason": "verify an export is truly unused before deleting"
+    },
+    {
+      "id": "complexity-breakdown",
+      "command": "fallow health --complexity-breakdown",
+      "reason": "see per-decision-point contributions for a hotspot"
+    }
+  ],
+  "_meta": {
+    "telemetry": {
+      "analysis_run_id": "run_8b67f9e79bc2dfe1"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+---
+alwaysApply: true
+---
+
+# Architect MVP
+
+Customer-demo task/Kanban workspace for **Studio Design**. Demonstration prototype only: no backend, no authentication, no production ops.
+
+## Stack (do not change unless asked)
+
+- Vanilla TypeScript SPA (no React, Vue, Svelte, or other UI frameworks)
+- Vite 6, Tailwind CSS 3, TypeScript strict (`noUnusedLocals` / `noUnusedParameters`)
+- Hash routing, `localStorage` for tasks (`architect-mvp-tasks-v1`)
+- npm (`package-lock.json`); ESM (`"type": "module"`)
+
+## Layout
+
+- `src/main.ts` — bootstrap, FAB / New Project handlers, route → page mount
+- `src/layout.ts` — shell (sidebar, header, mobile nav, outlet, FAB)
+- `src/router.ts` — hash routes
+- `src/store.ts` — tasks, team seed, pub/sub persistence
+- `src/types.ts` — `Task`, `TeamMember`, `Route`, column/priority unions
+- `src/pages/` — `mountDashboard`, `mountBoard`, `mountTaskDetail`, `mountTeam`
+- `tailwind.config.js` — Editorial Architect tokens
+- `SECURITY-HTML.md` — innerHTML / XSS contract
+
+## Routes
+
+`#/` dashboard · `#/board` Kanban · `#/team` bandwidth · `#/task/<id>` detail
+
+## Scope
+
+Keep demo interactions (`prompt` / `alert` placeholders) unless the user asks to replace them. Do not add APIs, auth, or a real backend without an explicit request.
+
+## Verify
+
+`npm run lint` · `npm run typecheck` · `npm run test` · `npm run build`

@@ -1,0 +1,31 @@
+---
+description: Editorial Architect design system — tokens, typography, surfaces, and UI chrome
+globs: src/**/*.ts, src/**/*.css, tailwind.config.js, index.html
+alwaysApply: false
+---
+
+# Editorial Architect
+
+Tonal surfaces (minimal hard borders), **Manrope** headlines, **Inter** body/labels, navy primary, restrained gold/amber tertiary, gradient primary actions.
+
+Canonical tokens: `@tailwind.config.js`. Shared utilities: `@src/style.css`. Fonts and Material Symbols: `@index.html`.
+
+## Tokens
+
+- Surfaces: `bg-surface`, `bg-surface-container-low`, `bg-surface-container`, `bg-surface-container-lowest` — prefer fills over 1px borders.
+- Text: `text-on-surface`, `text-on-surface-variant`, `text-secondary`, `text-outline`.
+- Brand: `primary` / `primary-container` (navy), `tertiary` / `tertiary-container` (amber). High-priority / over-capacity accents use tertiary, not generic red, except `error` for true errors.
+- Type: `font-headline` (Manrope) for titles; `font-body` / `font-label` (Inter) for copy and overlines.
+- Overlines: small, bold, uppercase, wide tracking (`text-[10px]`–`text-[11px]`, `tracking-widest` / `tracking-[0.05rem]`).
+- Radius: soft (`rounded-md`, `rounded-xl`). Shadows: `shadow-ambient` / `shadow-ambientSoft`.
+- Primary CTAs: `bg-gradient-to-r from-primary to-primary-container` (or `to-br` on the FAB).
+
+## Chrome
+
+- Icons: Material Symbols Outlined (`<span class="material-symbols-outlined">…</span>`). Filled state via `font-variation-settings: 'FILL' 1`.
+- Dashboard metrics use `.bento-grid` (12-column). Kanban columns use `.kanban-column`. Cards use `.task-card-drag`. Header uses `.glass-header`.
+- Responsive: sidebar `lg:flex` / `hidden`; mobile top strip for Home / Board / Team; main content `lg:pl-64` with `pt-16` under the header.
+
+## Copy
+
+Keep architecture-studio demo voice (Studio Design, Horizon Redesign, Skyline Tower, drafts, BIM, director sign-off) unless replacing placeholder content on purpose.

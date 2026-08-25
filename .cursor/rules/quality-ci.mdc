@@ -1,0 +1,27 @@
+---
+description: Lint, typecheck, Vitest, GitHub Actions CI, and verification for Architect MVP
+alwaysApply: false
+---
+
+# Quality and CI
+
+## Commands
+
+- `npm run dev` — Vite (usually `http://localhost:5173`)
+- `npm run lint` — ESLint 9 flat config (`eslint.config.js`)
+- `npm run typecheck` / `npm run build` — `tsc --noEmit` (build also runs Vite)
+- `npm run test` — `vitest run`
+
+CI (`.github/workflows/ci.yml`) on push/PR to `main`: lint, typecheck, test, build, then CodeQL. Node **24** with `npm ci`.
+
+## Tests
+
+- Co-locate as `*.test.ts` under `src/` (Vitest default discovery). There is no separate Vitest config.
+- `src/smoke.test.ts` is a placeholder. Prefer real tests for store, router, and escaping over expanding a trivial smoke assert.
+- Store logic is plain TypeScript and is the easiest unit-test surface. DOM page tests are optional; keep them light if added.
+
+## Changes to tooling
+
+- Keep ESLint flat config; do not add a legacy `.eslintrc`.
+- Do not add runtime `dependencies` unless the user asks for a library. Today everything is `devDependencies`.
+- Dependabot is weekly npm, grouped minor/patch (`.github/dependabot.yml`).

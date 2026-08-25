@@ -1,0 +1,32 @@
+---
+description: Vanilla TypeScript SPA architecture — pages, router, store, and mount/cleanup pattern
+globs: src/**/*.ts
+alwaysApply: false
+---
+
+# SPA architecture
+
+Follow existing patterns in `@src/main.ts`, `@src/router.ts`, `@src/store.ts`, and `@src/types.ts`.
+
+## Pages
+
+- One screen per file under `src/pages/`. Export a named `mountX(outlet: HTMLElement, …): () => void`.
+- The return value is cleanup (unsubscribe from the store, or a no-op). `main.ts` calls the previous cleanup before remounting.
+- Paint with template literals into `outlet.innerHTML`, then bind events with `querySelector` / `addEventListener`.
+- Re-render by replacing `innerHTML` and re-binding. Subscribe with `subscribe(render)` when the view must track task changes.
+
+## Routing
+
+- Keep the `Route` discriminated union in `src/types.ts` in sync with `parseHash` / `navigate` in `src/router.ts` and the switch in `src/main.ts`.
+- Navigate with `navigate({ name, … })` or hash links (`href="#/board"`). Do not introduce History API or a router library.
+
+## State
+
+- Tasks live in `src/store.ts`. Mutate only through store functions (`addTask`, `moveTask`, …) so `notify()` persists and subscribers update.
+- Persist under `architect-mvp-tasks-v1`. Do not rename the key without a migration (seed fallback on missing/invalid JSON).
+- Domain types belong in `src/types.ts`. Use `import type` for type-only imports.
+- Prefer named exports. Keep TypeScript strict; no unused locals or parameters.
+
+## Markup hooks
+
+Reuse existing data attributes: `data-nav`, `data-task-id`, `data-drop-zone`, `data-column`, `data-open-task`.

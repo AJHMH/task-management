@@ -1,0 +1,25 @@
+---
+description: XSS hygiene for innerHTML templates — escape user and persisted strings
+globs: src/pages/**/*.ts, src/layout.ts, src/main.ts
+alwaysApply: false
+---
+
+# innerHTML escaping
+
+This app renders views with `innerHTML` and template literals. See `@SECURITY-HTML.md`.
+
+## Required
+
+- Run **every** user-facing or persisted string through `escapeHtml()` before interpolating it into HTML: task `title`, `description`, `label`, `due`, `assigneeInitials`, and any `prompt()` input.
+- Escape attribute values as well (quotes are replaced). Never drop an unescaped task field into `href`, `title`, `data-*`, or text nodes.
+- Shell markup in `layout.ts` / `main.ts` must stay static. Route names are enum-checked; do not paste raw hash fragments or user strings into the shell.
+
+## Current helper
+
+Each page that interpolates user data defines a local `escapeHtml`. If you extract a shared helper, keep the same replacements (`&`, `<`, `>`, `"`) and use it everywhere those fields are rendered.
+
+## Do not
+
+- Interpolate unescaped strings into templates.
+- Switch to `innerHTML` for values that can be set with `textContent` when you are not already in a template.
+- Treat `task.id` as trusted if it can originate from storage or the URL without validation.
